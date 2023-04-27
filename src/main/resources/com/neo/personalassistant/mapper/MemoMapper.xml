@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neo.personalassistant.mapper.MemoMapper">
+  <resultMap id="BaseResultMap" type="com.neo.personalassistant.domain.Memo">
+    <!--@mbg.generated-->
+    <!--@Table core_memo-->
+    <id column="memo_id" jdbcType="INTEGER" property="memoId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    memo_id, user_id, content, create_time, last_update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from core_memo
+    where memo_id = #{memoId,jdbcType=INTEGER}
+  </select>
+  <delete id="removeMemo">
+    delete from core_memo
+    where memo_id = #{memoId,jdbcType=INTEGER} and user_id = #{userId}
+  </delete>
+  <insert id="insert" parameterType="com.neo.personalassistant.domain.Memo">
+    <!--@mbg.generated-->
+    insert into core_memo (user_id, content,
+      create_time, last_update_time)
+    values (#{userId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR},
+      now(), now())
+  </insert>
+
+  <select id="pageMemo" resultMap="BaseResultMap">
+    select * from core_memo
+    where user_id = #{userId}
+    order by last_update_time desc
+    limit #{limit} offset #{offset}
+  </select>
+
+  <update id="updateMemo">
+      update core_memo
+      set content = #{content},
+          last_update_time = now()
+      where memo_id = #{memoId} and user_id = #{userId}
+  </update>
+</mapper>
