@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: persional-assistant
+  profiles:
+    active: local
+mybatis:
+  configuration:
+    jdbc-type-for-null: null
+    map-underscore-to-camel-case: true
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
