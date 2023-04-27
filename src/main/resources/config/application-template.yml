@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://YOUR_IP:5432/YOUR_DB?useSSL=false&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+    username: USER_NAME
+    password: PASSWORD
+    driver-class-name: org.postgresql.Driver
