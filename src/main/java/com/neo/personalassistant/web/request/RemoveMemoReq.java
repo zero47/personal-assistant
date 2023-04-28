@@ -8,6 +8,5 @@ import lombok.Data;
  */
 @Data
 public class RemoveMemoReq {
-    private Integer userId;
     private Integer memoId;
 }

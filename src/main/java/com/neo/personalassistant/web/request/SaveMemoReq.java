@@ -8,6 +8,5 @@ import lombok.Data;
  */
 @Data
 public class SaveMemoReq {
-    private Integer userId;
     private String content;
 }

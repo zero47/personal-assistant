@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum WebappRetCode {
 
-    BAD_REQUEST(-400),METHOD_NOT_ALLOWED(-401),SERVER_ERROR(-500);
+    BAD_REQUEST(-400), METHOD_NOT_ALLOWED(-401), FORBIDDEN(-403), SERVER_ERROR(-500);
 
     private final int code;
 }

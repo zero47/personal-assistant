@@ -8,7 +8,6 @@ import lombok.Data;
  */
 @Data
 public class PageMemoReq {
-    private Integer userId;
     private Integer cursor;
     private Integer size;
 }

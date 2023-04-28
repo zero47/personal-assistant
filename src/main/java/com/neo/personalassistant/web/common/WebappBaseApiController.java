@@ -3,7 +3,7 @@ package com.neo.personalassistant.web.common;
 import jakarta.servlet.http.HttpServletRequest;
 
 public abstract class WebappBaseApiController {
-    protected String getUserId(HttpServletRequest request) {
-        return (String) request.getAttribute("userId");
+    protected Integer getUserId(HttpServletRequest request) {
+        return (Integer) request.getAttribute("userId");
     }
 }
